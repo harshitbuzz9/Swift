@@ -1,0 +1,81 @@
+  import Foundation
+import Glibc
+ 
+
+class StringMethods {
+ var str: String="hi every one I am harshit bisht from mx player"
+ var array: [String] = ["i", "o", "s", "i", "q", "a", ".", "c", "o", "m"]
+ var array2:[String]=["a","b","c","d","a","f","g","h","i","j","k","l","m","A","U","p","q","rO","s","t","o","v","d","x","a"]
+ 
+  func upper() {
+   print("1. All Capital : "+str.uppercased())
+  }
+  func lower() {
+     print("3. last capital : "+str.prefix(str.count-1)+str.suffix(1).uppercased())
+  }
+  func addCharLast(element: String){
+      array.append(element)
+      var i=0
+      var j=""
+      while(i<array.count){
+          j=j+" "+array[i]
+          i=i+1
+      }
+      print("6. Inserted Element at last : "+j)
+  }
+  func Vowels()->String{
+    var g=""
+    var i=0
+      while(i<array.count){
+        if(array2[i]=="a"||array2[i]=="e"||array2[i]=="i"||array2[i]=="o"||array2[i]=="u"||array2[i]=="A"||array2[i]=="E"||array2[i]=="I"||array2[i]=="O"||array2[i]=="U"){
+            g=g+array2[i]
+        }
+        i=i+1
+      }
+    return g  
+  }
+}
+
+
+extension StringMethods {
+  func firstCapital() {
+   print("2. 1st capital : "+str.prefix(1).uppercased()+str.suffix(str.count-1))
+  }
+  func remove(pos:Int){
+   print("4. remove from position :")
+   print(array.remove(at:pos))
+
+  } 
+  func reverseString(){
+    print("5. Reversed String :"+String(str.reversed()))
+  }
+  func addCharFront(element:String){
+      array.insert(element,at:0)
+      var i=0
+      var j=""
+      while(i<array.count){
+          j=j+" "+array[i]
+          i=i+1
+      }
+      print("7. Inserted Element at First : "+j)
+  
+  }
+  func ConcatS(str1:String,str2:String)->String{
+     return str1+" "+str2
+  }
+}
+
+
+let obj1 = StringMethods()
+ 
+obj1.upper()
+obj1.firstCapital()
+obj1.lower()
+obj1.remove(pos:3)
+obj1.reverseString()
+obj1.addCharLast(element:"a")
+obj1.addCharLast(element:"/L A S t")
+obj1.addCharFront(element:"w")
+obj1.addCharFront(element:"F i R s T/ ")
+print("8. Vowels are:"+obj1.Vowels())
+print("9. Concatination :"+obj1.ConcatS(str1:"harshit",str2:"bisht"))
